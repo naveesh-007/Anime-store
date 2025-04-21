@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Anime Summer Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  </head>
+<body>
+  <div class="header">
+    <div class="logo">Anime Store</div>
+    <div class="cart-icon">
+      🛒
+      <span class="cart-count">0</span>
+    </div>
+  </div>
+
+  <div class="hero-section">
+    <div class="slider" id="slider">
+      <div class="slide">
+        <img src="images/luffy1.png" alt="Anime Summer Collection 1">
+      </div>
+      <div class="slide">
+        <img src="images/luffy2.png" alt="Anime Summer Collection 2">
+      </div>
+      <div class="slide">
+        <img src="images/goku1.png" alt="Anime Summer Collection 3">
+      </div>
+      <div class="slide">
+        <img src="images/goku2.png" alt="Anime Summer Collection 4">
+      </div>
+      
+    </div>
+   
+    <div class="hero-content">
+      <span class="eco-friendly-badge">ECO FRIENDLY</span>
+      <h2 class="hero-title">SUMMER</h2>
+      <h3 class="hero-subtitle">MUST-HAVES</h3>
+      <p class="hero-text">NOT AFRAID OF THE SUN ANYMORE.</p>
+    </div>
+   
+    <div class="slider-nav">
+      <div class="slider-dot active" onclick="goToSlide(0)"></div>
+      <div class="slider-dot" onclick="goToSlide(1)"></div>
+      <div class="slider-dot" onclick="goToSlide(2)"></div>
+      <div class="slider-dot" onclick="goToSlide(3)"></div>
+    </div>
+  </div>
+
+  
+    
+    <div class="filters">
+      <select class="anime-filter" id="animeFilter" onchange="filterByAnime()">
+        <option value="all">All Anime</option>
+        <option value="Naruto">Naruto</option>
+        <option value="One Piece">One Piece</option>
+        <option value="Attack on Titan">Attack on Titan</option>
+        <option value="DC Comics">DC Comics</option>
+        <option value="TV Series">TV Series</option>
+        <option value="Anime Heroes">Anime Heroes</option>
+        <option value="Jujutsu Kaisen">Jujutsu Kaisen</option>
+      </select>
+      <input type="text" class="search-bar" id="searchInput" placeholder="Search products..." onkeyup="searchItems()">
+    </div>
+  
+
+
+  <div class="product-grid" id="productList">
+    <div class="product" data-anime="One Piece">
+      <img src="images/strawhat.png" alt="One Piece Bucket Hat">
+      <h3>Summer Bucket Hat</h3>
+      <p class="price">₹2074</p>
+      <button class="add-to-cart" onclick="addToCart('Summer Bucket Hat')">Add to Cart</button>
+    </div>
+    <div class="product" data-anime="Naruto">
+      <img src="images/sunglasses.png" alt="Naruto Sunglasses">
+      <h3>Anime Sunglasses</h3>
+      <p class="price">₹1657</p>
+      <button class="add-to-cart" onclick="addToCart('Anime Sunglasses')">Add to Cart</button>
+    </div>
+    <div class="product" data-anime="Naruto">
+      <img src="images/itachi hoodie.png" alt="ITACHI HODDIE">
+      <h3>ITACHI HODDIE</h3>
+      <p class="price">₹3817</p>
+      <button class="add-to-cart" onclick="addToCart('ITACHI HODDIE')">Add to Cart</button>
+    </div>
+    <div class="product" data-anime="Naruto">
+      <img src="images/kakashi.png" alt="Kakashi Hoodie">
+      <h3>Kakashi Hoodie</h3>
+      <p class="price">₹4149</p>
+      <button class="add-to-cart" onclick="addToCart('Kakashi Hoodie')">Add to Cart</button>
+    </div>
+    <div class="product" data-anime="Naruto">
+      <img src="images/naruto cup.png" alt="Naruto Team 7 Mug">
+      <h3>Naruto Team 7 Mug</h3>
+      <p class="price">₹1657</p>
+      <button class="add-to-cart" onclick="addToCart('Naruto Team 7 Mug')">Add to Cart</button>
+    </div>
+    <div class="product" data-anime="Attack on Titan">
+      <img src="images/aot-tshirt1.png" alt="Attack on Titan T-Shirt">
+      <h3>Survey Corps Classic Tee</h3>
+      <p class="price">₹1899</p>
+      <button class="add-to-cart" onclick="addToCart('Survey Corps Classic Tee')">Add to Cart</button>
+  </div>
+
+  <div class="product" data-anime="Attack on Titan">
+      <img src="images/aot-tshirt2.png" alt="Survey Corps Sport Tee">
+      <h3>Survey Corps Sport Edition</h3>
+      <p class="price">₹2199</p>
+      <button class="add-to-cart" onclick="addToCart('Survey Corps Sport Edition')">Add to Cart</button>
+  </div>
+
+  <div class="product" data-anime="Attack on Titan">
+      <img src="images/aot-bag1.png" alt="Survey Corps Backpack">
+      <h3>Scout Regiment Backpack</h3>
+      <p class="price">₹2499</p>
+      <button class="add-to-cart" onclick="addToCart('Scout Regiment Backpack')">Add to Cart</button>
+  </div>
+
+  <div class="product" data-anime="DC Comics">
+      <img src="images/batman-hoodie1.png" alt="Batman Hoodie">
+      <h3>Batman Classic Hoodie</h3>
+      <p class="price">₹2999</p>
+      <button class="add-to-cart" onclick="addToCart('Batman Classic Hoodie')">Add to Cart</button>
+  </div>
+
+  <div class="product" data-anime="Marvel">
+      <img src="images/deadpool-hoodie1.png" alt="Deadpool Hoodie">
+      <h3>Deadpool Premium Hoodie</h3>
+      <p class="price">₹3299</p>
+      <button class="add-to-cart" onclick="addToCart('Deadpool Premium Hoodie')">Add to Cart</button>
+  </div>
+  <div class="product" data-anime="Naruto">
+    <img src="images/naruto-tshirt1.png" alt="Naruto Orange Tee">
+    <h3>Naruto Classic T-Shirt</h3>
+    <p class="price">₹1899</p>
+    <button class="add-to-cart" onclick="addToCart('Naruto Classic T-Shirt')">Add to Cart</button>
+</div>
+
+<div class="product" data-anime="Naruto">
+    <img src="images/naruto-tshirt2.png" alt="Naruto Green Tee">
+    <h3>Naruto Shinobi T-Shirt</h3>
+    <p class="price">₹1899</p>
+    <button class="add-to-cart" onclick="addToCart('Naruto Shinobi T-Shirt')">Add to Cart</button>
+</div>
+
+<div class="product" data-anime="Naruto">
+    <img src="images/naruto-hoodie2.png" alt="Ramen Hoodie">
+    <h3>Ichiraku Ramen Hoodie</h3>
+    <p class="price">₹2999</p>
+    <button class="add-to-cart" onclick="addToCart('Ichiraku Ramen Hoodie')">Add to Cart</button>
+</div>
+
+<div class="product" data-anime="DC Comics">
+    <img src="images/batman-hoodie2.png" alt="Batman Black Hoodie">
+    <h3>The Batman Dark Hoodie</h3>
+    <p class="price">₹3299</p>
+    <button class="add-to-cart" onclick="addToCart('The Batman Dark Hoodie')">Add to Cart</button>
+</div>
+
+<div class="product" data-anime="Cartoon">
+    <img src="images/tom-jerry1.png" alt="Tom and Jerry Hoodie">
+    <h3>Frenemies Forever Hoodie</h3>
+    <p class="price">₹2799</p>
+    <button class="add-to-cart" onclick="addToCart('Frenemies Forever Hoodie')">Add to Cart</button>
+</div>
+<div class="product" data-anime="DC Comics">
+  <img src="images/wonder-woman1.png" alt="Wonder Woman Hoodie">
+  <h3>Wonder Woman Gold Edition</h3>
+  <p class="price">₹2999</p>
+  <button class="add-to-cart" onclick="addToCart('Wonder Woman Gold Edition')">Add to Cart</button>
+</div>
+
+<div class="product" data-anime="TV Series">
+  <img src="images/friends-hoodie1.png" alt="Friends TV Series Hoodie">
+  <h3>Central Perk Friends</h3>
+  <p class="price">₹2799</p>
+  <button class="add-to-cart" onclick="addToCart('Central Perk Friends')">Add to Cart</button>
+</div>
+
+<div class="product" data-anime="DC Comics">
+  <img src="images/superman-hoodie1.png" alt="Superman Premium Hoodie">
+  <h3>Superman Premium Edition</h3>
+  <p class="price">₹3499</p>
+  <button class="add-to-cart" onclick="addToCart('Superman Premium Edition')">Add to Cart</button>
+</div>
+
+<div class="product" data-anime="Anime Heroes">
+  <img src="images/anime-heroes1.png" alt="Anime Heroes Hoodie">
+  <h3>Anime Heroes Collection</h3>
+  <p class="price">₹2899</p>
+  <button class="add-to-cart" onclick="addToCart('Anime Heroes Collection')">Add to Cart</button>
+</div>
+
+<div class="product" data-anime="Jujutsu Kaisen">
+  <img src="images/gojo-hoodie2.png" alt="Gojo Special Hoodie">
+  <h3>Gojo Purple Edition</h3>
+  <p class="price">₹2799</p>
+  <button class="add-to-cart" onclick="addToCart('Gojo Purple Edition')">Add to Cart</button>
+</div>
+</div>
+  
+  <div class="payment">
+    <h2>Choose Payment Method</h2>
+    <select>
+      <option value="">Select Payment Method</option>
+      <option value="credit">Credit Card</option>
+      <option value="debit">Debit Card</option>
+      <option value="upi">UPI</option>
+      <option value="cod">Cash on Delivery</option>
+    </select>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('productModal')">&times;</span>
+        <div id="productDetails" class="product-details"></div>
+    </div>
+</div>
+
+
+<!-- Cart Modal -->
+<div id="cartModal" class="modal">
+  <div class="modal-content cart-modal">
+      <!-- Add this line for the back button -->
+      <div class="modal-header">
+          <button class="back-btn" onclick="closeModal('cartModal')">&larr; Back to Shopping</button>
+          <span class="close-btn" onclick="closeModal('cartModal')">&times;</span>
+      </div>
+        <h2>Shopping Cart</h2>
+        <div id="cartItems" class="cart-items"></div>
+        <div id="cartTotal" class="cart-total"></div>
+        <div class="payment">
+            <h3>Payment Method</h3>
+            <select id="paymentMethod" onchange="handlePaymentSelection(this.value)">
+                <option value="">Select Payment Method</option>
+                <option value="credit">Credit Card</option>
+                <option value="debit">Debit Card</option>
+                <option value="upi">UPI</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+            <button class="checkout-btn" onclick="processCheckout()">
+                <span class="button-text">Checkout</span>
+                <div class="checkout-loader"></div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" class="modal">
+    <div class="modal-content success-modal">
+        <div class="success-animation">
+            <div class="checkmark">
+                <div class="check-icon"></div>
+            </div>
+        </div>
+        <h2>Order Successful!</h2>
+        <p>Thank you for your purchase!</p>
+        <button onclick="closeModal('successModal')" class="continue-shopping">Continue Shopping</button>
+    </div>
+</div>
+   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="script.js"></script>
+ </body>
+
+</body>
+</html>
